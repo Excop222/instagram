@@ -1,0 +1,163 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    touch-action: pan-y;
+}
+/* BODY */
+body {
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+/* APP = PHONE SCREEN */
+#app {
+    width: 100%;
+    max-width: 470px;
+    height: 100vh;
+    background: black;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+}
+/* FEED (SCROLLED AREA) */
+#feed {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+/* HIDE SCROLLBAR (Optional, nice) */
+#feed::-webkit-scrollbar {
+    display: none;
+}
+/* POST (ONE SCREEN EACH) */
+.post {
+    height: 100vh;
+    position: relative;
+    scroll-snap-align: start;
+    width: 100%;
+    overflow: hidden;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+/* VIDEO */
+.post-videos {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+/* CAPTION */
+.caption {
+    position: absolute;
+    bottom: 70px;
+    left: 10px;
+    color: white;
+    max-width: 75%;
+}
+.caption p {
+    font-size: 14px;
+    margin-top: 4px;
+}
+/* SIDE ICONS (GLOBAL) */
+#side-icons {
+    position: absolute;
+    right: 5px;
+    bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: white;
+    transform: translateY(30px);
+    overflow: hidden;
+}
+#icon-track {
+    transition: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: white;
+    overflow: hidden;
+}
+#icon-inner {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+#side-icons button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+/* BOTTOM NAV */
+#bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #222;
+}
+#bottom-nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+/* SLIDE-UP OVERLAY */
+#createoverlay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to top,
+        red,
+        orange,
+        yellow,
+        green,
+        cyan,
+        blue,
+        violet
+    );
+    z-index: 99;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+/* SHOW STATE */
+#createoverlay.show {
+    transform: translateY(0);
+}
+/* CONTENT */
+.overlay-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+/* TEXTAREA FIX (invisible cursor issue) */
+.overlay-content textarea {
+    width: 100%;
+    min-height: 90px;
+    padding: 10px;
+    font-size: 14px;
+    color: #000;
+    background: #f5f5f5;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
